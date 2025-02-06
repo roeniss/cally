@@ -34,12 +34,13 @@ export function useCalendarMonth({ props, context }: UseCalendarMonthOptions) {
     isDateDisallowed,
     min,
     max,
+    today,
     page,
     locale,
     focusedDate,
   } = context;
 
-  const todaysDate = getToday();
+  const todaysDate = today ?? getToday();
   const daysLong = useDayNames(longDayOptions, firstDayOfWeek, locale);
   const daysShort = useDayNames(shortDayOptions, firstDayOfWeek, locale);
   const dayFormatter = useDateFormatter(dayOptions, locale);

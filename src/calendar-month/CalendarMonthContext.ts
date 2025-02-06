@@ -5,6 +5,7 @@ import { getToday, type DaysOfWeek } from "../utils/date.js";
 interface CalendarMonthContextBase {
   min?: PlainDate;
   max?: PlainDate;
+  today?: PlainDate;
   firstDayOfWeek: DaysOfWeek;
   isDateDisallowed?: (date: Date) => boolean;
   page: { start: PlainYearMonth; end: PlainYearMonth };

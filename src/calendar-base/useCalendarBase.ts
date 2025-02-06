@@ -110,12 +110,13 @@ export function useCalendarBase({
 }: CalendarBaseOptions) {
   const [min] = useDateProp("min");
   const [max] = useDateProp("max");
+  const [today] = useDateProp("today");
   const dispatchFocusDay = useEvent<Date>("focusday");
   const dispatch = useEvent("change");
 
   const focusedDate = useMemo(
-    () => clamp(focusedDateProp ?? getToday(), min, max),
-    [focusedDateProp, min, max]
+    () => clamp(focusedDateProp ?? today ?? getToday(), min, max),
+    [focusedDateProp, today, min, max]
   );
 
   function goto(date: PlainDate) {
@@ -152,6 +153,7 @@ export function useCalendarBase({
     },
     min,
     max,
+    today,
     next,
     previous,
     focus,
